@@ -41,5 +41,6 @@ class Koma {
     // コマがタッチされたときに呼ばれる
     func touched() {
         println("koma at (" + self.x.description + ", " + self.y.description + ") was touched!")
+        self.scene.judge!.availableCoord(self.x, y: self.y)
     }
 }

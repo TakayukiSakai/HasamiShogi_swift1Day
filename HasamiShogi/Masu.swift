@@ -14,7 +14,7 @@ class Masu {
     var coord:Coordinate
     let scene: GameScene
     var node: Masu_SKSpriteNode?
-    var selected: Bool = false
+    var candidated: Bool = false
     
     init(x: Int, y: Int, coord: Coordinate, scene: GameScene) {
         self.x = x
@@ -35,5 +35,19 @@ class Masu {
     // マスがタッチされたときに呼ばれる（上にコマがある場合は呼ばれない）
     func touched() {
         println("masu at (" + self.x.description + ", " + self.y.description + ") was touched!")
+    }
+    
+    func candidate() {
+        if (!self.candidated) {
+            self.candidated = true
+            self.node!.texture = SKTexture(imageNamed: "masu_hover")
+        }
+    }
+    
+    func cancel_candidate() {
+        if (self.candidated) {
+            self.candidated = false
+            self.node!.texture = SKTexture(imageNamed: "masu")
+        }
     }
 }
