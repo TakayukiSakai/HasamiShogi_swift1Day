@@ -21,6 +21,10 @@
 		2E23B72A1A85CED300BF04EA /* MikataKoma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23B7291A85CED300BF04EA /* MikataKoma.swift */; };
 		2E23B72C1A85D22D00BF04EA /* TekiKoma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23B72B1A85D22D00BF04EA /* TekiKoma.swift */; };
 		2ED4FB7D1A85D9CD00C8175B /* Koma_SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4FB7C1A85D9CD00C8175B /* Koma_SKSpriteNode.swift */; };
+		2ED4FB7F1A85E72200C8175B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4FB7E1A85E72200C8175B /* Counter.swift */; };
+		2ED4FB811A85EB1100C8175B /* MattaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4FB801A85EB1100C8175B /* MattaButton.swift */; };
+		2ED4FB841A85EDAF00C8175B /* Masu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4FB831A85EDAF00C8175B /* Masu.swift */; };
+		2ED4FB861A85EF3E00C8175B /* Masu_SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4FB851A85EF3E00C8175B /* Masu_SKSpriteNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		2E23B7291A85CED300BF04EA /* MikataKoma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MikataKoma.swift; sourceTree = "<group>"; };
 		2E23B72B1A85D22D00BF04EA /* TekiKoma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TekiKoma.swift; sourceTree = "<group>"; };
 		2ED4FB7C1A85D9CD00C8175B /* Koma_SKSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koma_SKSpriteNode.swift; sourceTree = "<group>"; };
+		2ED4FB7E1A85E72200C8175B /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		2ED4FB801A85EB1100C8175B /* MattaButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MattaButton.swift; sourceTree = "<group>"; };
+		2ED4FB831A85EDAF00C8175B /* Masu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Masu.swift; sourceTree = "<group>"; };
+		2ED4FB851A85EF3E00C8175B /* Masu_SKSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Masu_SKSpriteNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +101,16 @@
 		2E23B6F91A85AEFD00BF04EA /* HasamiShogi */ = {
 			isa = PBXGroup;
 			children = (
+				2ED4FB821A85ED9F00C8175B /* Masu */,
 				2E23B7281A85CEB400BF04EA /* Koma */,
-				2ED4FB7B1A85D9AA00C8175B /* Koma_SKSpriteNode */,
+				2ED4FB7B1A85D9AA00C8175B /* Sub_SKSpriteNode */,
 				2E23B6FC1A85AEFD00BF04EA /* AppDelegate.swift */,
 				2E23B6FE1A85AEFD00BF04EA /* GameScene.sks */,
 				2E23B7001A85AEFD00BF04EA /* GameScene.swift */,
 				2E23B7021A85AEFD00BF04EA /* GameViewController.swift */,
 				2E23B7261A85C69500BF04EA /* Coordinate.swift */,
+				2ED4FB7E1A85E72200C8175B /* Counter.swift */,
+				2ED4FB801A85EB1100C8175B /* MattaButton.swift */,
 				2E23B7041A85AEFD00BF04EA /* Main.storyboard */,
 				2E23B7221A85BF2200BF04EA /* config.json */,
 				2E23B7071A85AEFD00BF04EA /* Images.xcassets */,
@@ -144,12 +155,21 @@
 			name = Koma;
 			sourceTree = "<group>";
 		};
-		2ED4FB7B1A85D9AA00C8175B /* Koma_SKSpriteNode */ = {
+		2ED4FB7B1A85D9AA00C8175B /* Sub_SKSpriteNode */ = {
 			isa = PBXGroup;
 			children = (
 				2ED4FB7C1A85D9CD00C8175B /* Koma_SKSpriteNode.swift */,
+				2ED4FB851A85EF3E00C8175B /* Masu_SKSpriteNode.swift */,
 			);
-			name = Koma_SKSpriteNode;
+			name = Sub_SKSpriteNode;
+			sourceTree = "<group>";
+		};
+		2ED4FB821A85ED9F00C8175B /* Masu */ = {
+			isa = PBXGroup;
+			children = (
+				2ED4FB831A85EDAF00C8175B /* Masu.swift */,
+			);
+			name = Masu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED4FB841A85EDAF00C8175B /* Masu.swift in Sources */,
 				2E23B7011A85AEFD00BF04EA /* GameScene.swift in Sources */,
+				2ED4FB861A85EF3E00C8175B /* Masu_SKSpriteNode.swift in Sources */,
 				2E23B7251A85C5D800BF04EA /* Koma.swift in Sources */,
 				2E23B7271A85C69500BF04EA /* Coordinate.swift in Sources */,
+				2ED4FB811A85EB1100C8175B /* MattaButton.swift in Sources */,
 				2E23B72C1A85D22D00BF04EA /* TekiKoma.swift in Sources */,
 				2ED4FB7D1A85D9CD00C8175B /* Koma_SKSpriteNode.swift in Sources */,
+				2ED4FB7F1A85E72200C8175B /* Counter.swift in Sources */,
 				2E23B7031A85AEFD00BF04EA /* GameViewController.swift in Sources */,
 				2E23B72A1A85CED300BF04EA /* MikataKoma.swift in Sources */,
 				2E23B6FD1A85AEFD00BF04EA /* AppDelegate.swift in Sources */,
