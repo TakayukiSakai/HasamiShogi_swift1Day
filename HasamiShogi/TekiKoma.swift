@@ -20,4 +20,14 @@ class TekiKoma : Koma {
         )
         scene.addChild(self.node!)
     }
+    
+    override func touched() {
+        super.touched()
+        if (self.selected) {
+            self.node!.texture = SKTexture(imageNamed: "koma_to")
+        } else {
+            self.node!.texture = SKTexture(imageNamed: "koma_to_hover")
+        }
+        self.selected = !self.selected
+    }
 }

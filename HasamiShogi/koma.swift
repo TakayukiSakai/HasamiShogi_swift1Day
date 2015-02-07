@@ -14,6 +14,7 @@ class Koma {
     var coord:Coordinate
     let scene: GameScene
     var node: Koma_SKSpriteNode?
+    var selected: Bool = false
     
     init(x: Int, y: Int, coord: Coordinate, scene: GameScene) {
         self.x = x
@@ -35,5 +36,9 @@ class Koma {
             x:rawCoord.x,
             y:rawCoord.y
         )
+    }
+    
+    func touched() {
+        println("koma at (" + self.x.description + ", " + self.y.description + ") was touched!")
     }
 }

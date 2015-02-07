@@ -21,5 +21,14 @@ class MikataKoma : Koma {
         )
         scene.addChild(self.node!)
     }
-   
+    
+    override func touched() {
+        super.touched()
+        if (self.selected) {
+            self.node!.texture = SKTexture(imageNamed: "koma_ho")
+        } else {
+            self.node!.texture = SKTexture(imageNamed: "koma_ho_hover")
+        }
+        self.selected = !self.selected
+    }
 }
