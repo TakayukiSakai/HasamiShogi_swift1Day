@@ -33,15 +33,12 @@ class GameScene: SKScene {
         var coordinate: Coordinate = Coordinate(x_cen: x_center, y_cen: y_center, width: masu_width, height: masu_height)
         
         // 盤面配置
+        var masu_arr: [[Masu]] = []
         for x in (1...9) {
+            masu_arr.append([])
             for y in (1...9) {
-                let masu = SKSpriteNode(imageNamed:"masu")
-                var rawCoord = coordinate.getRawCoodinate(x, y: y)
-                masu.position = CGPoint(
-                    x:rawCoord.x,
-                    y:rawCoord.y
-                )
-                self.addChild(masu)
+                let masu = Masu(x: x, y: y, coord: coordinate, scene: self)
+                masu_arr[x-1].append(masu)
             }
         }
         

@@ -12,6 +12,7 @@ class TekiKoma : Koma {
     override init(x: Int, y: Int, coord: Coordinate, scene: GameScene) {
         super.init(x: x, y: y, coord: coord, scene: scene)
         self.node = Koma_SKSpriteNode(koma: self, imageNamed:"koma_to_r")
+        self.node!.zPosition = 1.0
         
         var rawCoord = self.coord.getRawCoodinate(x, y: y)
         self.node!.position = CGPoint(

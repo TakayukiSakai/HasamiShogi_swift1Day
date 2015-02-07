@@ -38,6 +38,7 @@ class Koma {
         )
     }
     
+    // コマがタッチされたときに呼ばれる
     func touched() {
         println("koma at (" + self.x.description + ", " + self.y.description + ") was touched!")
     }

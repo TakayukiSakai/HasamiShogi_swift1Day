@@ -22,10 +22,18 @@ class Masu {
         self.coord = coord
         self.scene = scene
         
-        self.node = Masu_SKSpriteNode(masu: self, imageNamed:"koma_ho")
+        self.node = Masu_SKSpriteNode(masu: self, imageNamed:"masu")
+        self.node!.zPosition = 0.0
+        var rawCoord = self.coord.getRawCoodinate(x, y: y)
+        self.node!.position = CGPoint(
+            x:rawCoord.x,
+            y:rawCoord.y
+        )
+        self.scene.addChild(self.node!)
     }
     
+    // マスがタッチされたときに呼ばれる（上にコマがある場合は呼ばれない）
     func touched() {
-        println("koma at (" + self.x.description + ", " + self.y.description + ") was touched!")
+        println("masu at (" + self.x.description + ", " + self.y.description + ") was touched!")
     }
 }
