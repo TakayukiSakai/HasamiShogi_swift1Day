@@ -8,6 +8,12 @@
 
 import SpriteKit
 
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+}
+
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         let path : String! = NSBundle.mainBundle().pathForResource("config", ofType: "json")
@@ -19,17 +25,38 @@ class GameScene: SKScene {
         
         println(config.objectForKey("masu")!.objectForKey("width")!)
         
-        let masu = SKSpriteNode(imageNamed:"00_masu")
-        masu.position = CGPoint(
-            x:CGRectGetMidX(self.frame),
-            y:CGRectGetMidY(self.frame)
-        )
+        let x_center:CGFloat = CGRectGetMidX(self.frame)
+        let y_center:CGFloat = CGRectGetMidX(self.frame)
+        let masu_width:CGFloat = CGFloat(config.objectForKey("masu")!.objectForKey("width")!.floatValue)
+        let masu_height:CGFloat = CGFloat(config.objectForKey("masu")!.objectForKey("height")!.floatValue)
         
-        self.addChild(masu)
-        println(masu.size.width)
+        var coordinate: Coordinate = Coordinate(x_cen: x_center, y_cen: y_center, width: masu_width, height: masu_height)
         
-        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
-        println("Bounds width: \(myBoundSize.width) height: \(myBoundSize.height)")
+        // 盤面配置
+        for x in (1...9) {
+            for y in (1...9) {
+                let masu = SKSpriteNode(imageNamed:"masu")
+                var rawCoord = coordinate.getRawCoodinate(x, y: y)
+                masu.position = CGPoint(
+                    x:rawCoord.x,
+                    y:rawCoord.y
+                )
+                self.addChild(masu)
+            }
+        }
+        
+        // コマ配置
+        var mikata_koma_arr: [MikataKoma] = []
+        var teki_koma_arr: [TekiKoma] = []
+        for x in (1...9) {
+            let mikata_koma = MikataKoma(x: x, y: 9, coord: coordinate, scene: self)
+            mikata_koma_arr.append(mikata_koma)
+            let teki_koma = TekiKoma(x: x, y: 1, coord: coordinate, scene: self)
+            teki_koma_arr.append(teki_koma)
+        }
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     }
     
     override func update(currentTime: CFTimeInterval) {

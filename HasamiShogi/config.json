@@ -1,8 +1,6 @@
 {
     "masu" : {
-        "width" : 62.0,
-        "height" : 62.0,
-        "rows" : 9,
-        "cols" : 9,
+        "width" : 31.0,
+        "height" : 31.0,
     },
 }
