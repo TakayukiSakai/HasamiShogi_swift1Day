@@ -35,6 +35,12 @@ class Masu {
     // マスがタッチされたときに呼ばれる（上にコマがある場合は呼ばれない）
     func touched() {
         println("masu at (" + self.x.description + ", " + self.y.description + ") was touched!")
+        if (self.candidated && (self.scene.state == 1 || self.scene.state == 3)) {
+            self.scene.candidated_koma!.moveTo(self.x, y: self.y)
+            self.scene.candidated_koma!.cancelSelect()
+            self.scene.state = (self.scene.state + 1) % 4
+            self.scene.judge!.clearAllMasu()
+        }
     }
     
     func candidate() {

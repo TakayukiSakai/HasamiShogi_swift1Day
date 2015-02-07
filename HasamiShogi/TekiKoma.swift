@@ -23,12 +23,23 @@ class TekiKoma : Koma {
     }
     
     override func touched() {
-        super.touched()
+        if (self.scene.state == 2) {
+            super.touched()
+            if (self.selected) {
+                self.node!.texture = SKTexture(imageNamed: "koma_to_r")
+            } else {
+                self.node!.texture = SKTexture(imageNamed: "koma_to_hover_r")
+            }
+            self.selected = !self.selected
+            self.scene.candidated_koma = self
+            self.scene.state = 3
+        }
+    }
+    
+    override func cancelSelect() {
         if (self.selected) {
             self.node!.texture = SKTexture(imageNamed: "koma_to_r")
-        } else {
-            self.node!.texture = SKTexture(imageNamed: "koma_to_hover_r")
+            self.selected = false
         }
-        self.selected = !self.selected
     }
 }

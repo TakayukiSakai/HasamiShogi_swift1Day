@@ -24,12 +24,23 @@ class MikataKoma : Koma {
     }
     
     override func touched() {
-        super.touched()
+        if (self.scene.state == 0) {
+            super.touched()
+            if (self.selected) {
+                self.node!.texture = SKTexture(imageNamed: "koma_ho")
+            } else {
+                self.node!.texture = SKTexture(imageNamed: "koma_ho_hover")
+            }
+            self.selected = !self.selected
+            self.scene.candidated_koma = self
+            self.scene.state = 1
+        }
+    }
+    
+    override func cancelSelect() {
         if (self.selected) {
             self.node!.texture = SKTexture(imageNamed: "koma_ho")
-        } else {
-            self.node!.texture = SKTexture(imageNamed: "koma_ho_hover")
+            self.selected = false
         }
-        self.selected = !self.selected
     }
 }

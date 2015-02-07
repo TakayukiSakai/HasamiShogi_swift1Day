@@ -43,4 +43,6 @@ class Koma {
         println("koma at (" + self.x.description + ", " + self.y.description + ") was touched!")
         self.scene.judge!.availableCoord(self.x, y: self.y)
     }
+    
+    func cancelSelect() {}
 }

@@ -58,4 +58,12 @@ class Judge {
         }
         return false
     }
+    
+    func clearAllMasu() {
+        for arr in self.scene.masu_arr {
+            for masu in arr {
+                masu.cancel_candidate()
+            }
+        }
+    }
 }

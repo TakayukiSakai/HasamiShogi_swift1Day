@@ -23,6 +23,8 @@ class GameScene: SKScene {
     
     var judge: Judge?
     
+    var candidated_koma: Koma?
+    
     var masu_arr: [[Masu]] = []
     var mikata_koma_arr: [MikataKoma] = []
     var teki_koma_arr: [TekiKoma] = []
