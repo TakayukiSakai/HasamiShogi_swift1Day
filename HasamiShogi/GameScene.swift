@@ -54,6 +54,24 @@ class GameScene: SKScene {
             let teki_koma = TekiKoma(x: x, y: 1, coord: coordinate, scene: self)
             teki_koma_arr.append(teki_koma)
         }
+        
+        let sente_counter: Counter = Counter(scene: self, prefix: "先手: ", location: CGPoint(
+            x:x_center - 0,
+            y:y_center - 200
+        ))
+        
+        let gote_counter: Counter = Counter(scene: self, prefix: "後手: ", location: CGPoint(
+            x:x_center + 100,
+            y:y_center - 200
+        ))
+        
+        let matta_button: MattaButton = MattaButton(text: "待った！")
+        matta_button.position = CGPoint(
+            x:x_center - 100,
+            y:y_center - 200
+        )
+        self.addChild(matta_button)
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
