@@ -36,6 +36,16 @@ class Koma {
             x:rawCoord.x,
             y:rawCoord.y
         )
+        self.scene.judge!.take(self)
+    }
+    
+    func movedOut() {
+        let travelTime = SKAction.moveTo(CGPoint(
+            x: 1000,
+            y: 1000
+        ), duration: 3)
+        self.node!.runAction(travelTime)
+//        self.node = nil
     }
     
     // コマがタッチされたときに呼ばれる
