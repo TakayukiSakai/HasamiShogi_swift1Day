@@ -24,9 +24,9 @@ class TekiKoma : Koma {
     override func touched() {
         super.touched()
         if (self.selected) {
-            self.node!.texture = SKTexture(imageNamed: "koma_to")
+            self.node!.texture = SKTexture(imageNamed: "koma_to_r")
         } else {
-            self.node!.texture = SKTexture(imageNamed: "koma_to_hover")
+            self.node!.texture = SKTexture(imageNamed: "koma_to_hover_r")
         }
         self.selected = !self.selected
     }
